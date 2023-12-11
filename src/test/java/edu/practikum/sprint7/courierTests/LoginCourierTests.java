@@ -21,7 +21,7 @@ public class LoginCourierTests extends CourierBeforeAndAfter {
 
     @Before
     public void courierCreate() {
-        Response createResponse = courierClient.create(courier);
+        courierClient.create(courier);
     }
 
     @Test

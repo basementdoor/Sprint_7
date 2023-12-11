@@ -36,7 +36,7 @@ public class CreateCourierTests extends CourierBeforeAndAfter {
     @Description("Ожидаем код 409, сообщение, что логин уже используется")
     public void createSameCourier409() {
         Courier courier = randomCourier();
-        Response response = courierClient.create(courier);
+        courierClient.create(courier);
         //ниже минимальная проверка - убедиться, что курьер был создан + получение id для удаления
         Response loginResponse = courierClient.login(fromCourier(courier));
         courierId = loginResponse.path("id").toString();
@@ -59,7 +59,7 @@ public class CreateCourierTests extends CourierBeforeAndAfter {
     @Description("Ожидаем код 409, сообщение, что логин уже используется")
     public void createCourierWithSameLogin409() {
         Courier courier = randomCourier();
-        Response response = courierClient.create(courier);
+        courierClient.create(courier);
         //ниже минимальная проверка - убедиться, что курьер был создан + получение id для удаления
         Response loginResponse = courierClient.login(fromCourier(courier));
         courierId = loginResponse.path("id").toString();
